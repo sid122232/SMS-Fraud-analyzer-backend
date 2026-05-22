@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 
-from threat_engine import analyze_msg
+from phase2.threat_engine import analyze_msg
 
 app = Flask(__name__)
 

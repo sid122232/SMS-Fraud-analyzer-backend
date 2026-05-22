@@ -1,5 +1,5 @@
 import pickle
-from text_url import extract_url, analyze_url
+from phase2.text_url import extract_url, analyze_url
 
 model = pickle.load(open("model.pkl", "rb"))
 vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
