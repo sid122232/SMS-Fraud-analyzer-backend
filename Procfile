@@ -1,0 +1,1 @@
+web: gunicorn phase2.app:app

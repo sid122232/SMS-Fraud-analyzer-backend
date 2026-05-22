@@ -1,0 +1,20 @@
+from flask import Flask, request, jsonify
+
+from threat_engine import analyze_msg
+
+app = Flask(__name__)
+
+@app.route("/predict", methods=["POST"])
+def predict():
+
+    data = request.get_json()
+
+    message = data["message"]
+
+    result = analyze_msg(message)
+
+    print(message)
+    print(result)
+    return jsonify(result)
+
+app.run(host="0.0.0.0", port=5000)
