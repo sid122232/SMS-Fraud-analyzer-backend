@@ -1,4 +1,5 @@
 import re 
+import os
 import pandas as pd
 from collections import Counter
 from rapidfuzz import fuzz
@@ -6,7 +7,13 @@ from rapidfuzz import fuzz
 msg = "You won lottery , please click on the link to avail your prizes https://www.goog1e.com/, you can also go with Claim now https://fake-bank.xyz/login"
 
 
-df = pd.read_csv("spam2.csv", encoding='latin-1')
+
+BASE_DIR = os.path.dirname(__file__)
+
+csv_path = os.path.join(BASE_DIR, "spam2.csv")
+
+df = pd.read_csv(csv_path, encoding='latin-1')
+
 words = []
 ignore_words = [
     "www",

@@ -1,5 +1,6 @@
 import pandas as pd
 import pickle 
+import os
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
@@ -8,7 +9,13 @@ from sklearn.metrics import accuracy_score, classification_report
 
 
 # Loading Dataset
-df = pd.read_csv("spam.csv", encoding='latin-1')
+
+BASE_DIR = os.path.dirname(__file__)
+
+csv_path = os.path.join(BASE_DIR, "spam.csv")
+
+df = pd.read_csv(csv_path, encoding='latin-1')
+
 df = df[['v1', 'v2']]
 df.columns = ['label', 'message']
 df['label'] =  df['label'].map({'ham':0, 'spam': 1})
